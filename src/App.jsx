@@ -163,14 +163,25 @@ function App() {
             </nav>
 
             {/* Hero Section */}
-            <section id="home" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 via-pink-50 to-purple-50">
-                <div className="max-w-7xl mx-auto">
+            <section id="home" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 via-pink-50 to-purple-50 relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 left-0 w-64 h-64 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+                <div className="absolute -bottom-8 left-20 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+                
+                <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center max-w-3xl mx-auto">
-                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                        {/* Decorative sparkles */}
+                        <div className="flex justify-center mb-6">
+                            <Sparkles className="h-12 w-12 text-primary-400 animate-pulse" />
+                        </div>
+                        <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 relative">
                             Make Every Moment
                             <span className="block bg-gradient-to-r from-primary-600 to-pink-600 bg-clip-text text-transparent">
                                 Unforgettable
                             </span>
+                            {/* Decorative underline */}
+                            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-primary-400 to-pink-400 rounded-full"></div>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8">
                             Professional event design and planning services for weddings, birthdays, and celebrations.
@@ -196,12 +207,16 @@ function App() {
                     {/* Stats */}
                     <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
-                            <div key={index} className="text-center transform hover:scale-110 transition-all duration-300">
-                                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 rounded-lg mb-3 hover:bg-primary-200 transition-colors">
-                                    <stat.icon className="h-6 w-6 text-primary-600" />
+                            <div key={index} className="text-center transform hover:scale-110 transition-all duration-300 group">
+                                <div className="relative inline-block mb-3">
+                                    <div className="absolute inset-0 bg-primary-400 rounded-lg blur opacity-25 group-hover:opacity-50 transition-opacity"></div>
+                                    <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-100 to-pink-100 rounded-lg hover:from-primary-200 hover:to-pink-200 transition-all shadow-lg">
+                                        <stat.icon className="h-7 w-7 text-primary-600" />
+                                    </div>
                                 </div>
-                                <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
-                                <div className="text-sm text-gray-600">{stat.label}</div>
+                                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
+                                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                                <div className="mt-2 w-12 h-0.5 bg-gradient-to-r from-transparent via-primary-300 to-transparent mx-auto"></div>
                             </div>
                         ))}
                     </div>
@@ -209,53 +224,85 @@ function App() {
             </section>
 
             {/* Gallery Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
+                {/* Decorative corner elements */}
+                <div className="absolute top-10 right-10 w-20 h-20 border-t-4 border-r-4 border-primary-200 opacity-50"></div>
+                <div className="absolute bottom-10 left-10 w-20 h-20 border-b-4 border-l-4 border-pink-200 opacity-50"></div>
+                
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4 animate-fade-in">Our Work</h2>
+                    <div className="text-center mb-16 relative">
+                        <div className="inline-block relative">
+                            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Work</h2>
+                            <div className="absolute -top-4 -right-4">
+                                <Sparkles className="h-6 w-6 text-primary-400 animate-pulse" />
+                            </div>
+                        </div>
                         <p className="text-xl text-gray-600">Creating unforgettable moments through stunning event designs</p>
+                        <div className="mt-4 w-24 h-1 bg-gradient-to-r from-primary-400 via-pink-400 to-purple-400 mx-auto rounded-full"></div>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105">
+                            {/* Decorative badge */}
+                            <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <Heart className="h-5 w-5 text-primary-600" />
+                            </div>
                             <div className="aspect-[3/4] relative bg-gray-200">
                                 <img
                                     src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80"
                                     alt="Elegant Wedding Ceremony"
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-8 h-0.5 bg-primary-400"></div>
+                                        <Sparkles className="h-4 w-4" />
+                                    </div>
                                     <h3 className="text-2xl font-bold mb-2">Elegant Weddings</h3>
-                                    <p className="text-sm">Luxurious ceremony designs</p>
+                                    <p className="text-sm text-gray-200">Luxurious ceremony designs</p>
                                 </div>
                             </div>
                         </div>
                         <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105">
+                            <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <Calendar className="h-5 w-5 text-primary-600" />
+                            </div>
                             <div className="aspect-[3/4] relative bg-gray-200">
                                 <img
                                     src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80"
                                     alt="Reception Table Setting"
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="absolute inset-0 bg-gradient-to-t from-pink-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-8 h-0.5 bg-pink-400"></div>
+                                        <Sparkles className="h-4 w-4" />
+                                    </div>
                                     <h3 className="text-2xl font-bold mb-2">Reception Details</h3>
-                                    <p className="text-sm">Beautiful table settings</p>
+                                    <p className="text-sm text-gray-200">Beautiful table settings</p>
                                 </div>
                             </div>
                         </div>
                         <div className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105">
+                            <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <Users className="h-5 w-5 text-primary-600" />
+                            </div>
                             <div className="aspect-[3/4] relative bg-gray-200">
                                 <img
                                     src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80"
                                     alt="Outdoor Wedding Celebration"
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500"></div>
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-8 h-0.5 bg-purple-400"></div>
+                                        <Sparkles className="h-4 w-4" />
+                                    </div>
                                     <h3 className="text-2xl font-bold mb-2">Outdoor Celebrations</h3>
-                                    <p className="text-sm">Breathtaking venue setups</p>
+                                    <p className="text-sm text-gray-200">Breathtaking venue setups</p>
                                 </div>
                             </div>
                         </div>
@@ -264,34 +311,64 @@ function App() {
             </section>
 
             {/* Services Section */}
-            <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
+            <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+                {/* Background decoration */}
+                <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+                <div className="absolute top-1/4 right-0 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{animationDelay: '1s'}}></div>
+                
+                <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                        <div className="inline-block relative mb-4">
+                            <h2 className="text-4xl font-bold text-gray-900">Our Services</h2>
+                            <div className="absolute -top-3 -left-3">
+                                <div className="w-3 h-3 bg-primary-400 rounded-full animate-ping"></div>
+                            </div>
+                        </div>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                             From intimate gatherings to grand celebrations, we offer comprehensive event design services
                         </p>
+                        <div className="mt-4 w-24 h-1 bg-gradient-to-r from-primary-400 via-pink-400 to-purple-400 mx-auto rounded-full"></div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="group bg-gradient-to-br from-white to-primary-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-primary-100 transform hover:-translate-y-2 hover:scale-105"
+                                className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-primary-100 hover:border-primary-300 transform hover:-translate-y-2 overflow-hidden"
                             >
-                                <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-600 rounded-xl mb-4 group-hover:bg-primary-700 group-hover:rotate-12 transition-all duration-300">
-                                    <service.icon className="h-7 w-7 text-white" />
+                                {/* Decorative corner accent */}
+                                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-100 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                                
+                                {/* Icon with glow effect */}
+                                <div className="relative inline-block mb-4">
+                                    <div className="absolute inset-0 bg-primary-500 rounded-xl blur-md opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                                    <div className="relative inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                                        <service.icon className="h-8 w-8 text-white" />
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">{service.title}</h3>
-                                <p className="text-gray-600 mb-6">{service.description}</p>
-                                <ul className="space-y-2">
+                                
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors flex items-center gap-2">
+                                    {service.title}
+                                    <Sparkles className="h-5 w-5 text-primary-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                </h3>
+                                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                                
+                                {/* Divider */}
+                                <div className="w-12 h-0.5 bg-gradient-to-r from-primary-400 to-transparent mb-4"></div>
+                                
+                                <ul className="space-y-3">
                                     {service.features.map((feature, idx) => (
                                         <li key={idx} className="flex items-center text-gray-700 group-hover:text-gray-900 transition-colors">
-                                            <ChevronRight className="h-5 w-5 text-primary-600 mr-2 group-hover:translate-x-1 transition-transform" />
-                                            {feature}
+                                            <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 flex items-center justify-center mr-3 group-hover:bg-primary-200 transition-colors">
+                                                <ChevronRight className="h-4 w-4 text-primary-600 group-hover:translate-x-0.5 transition-transform" />
+                                            </div>
+                                            <span className="font-medium">{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
+                                
+                                {/* Bottom accent line */}
+                                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 via-pink-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                             </div>
                         ))}
                     </div>
